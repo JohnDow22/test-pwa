@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Facebook</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#036DE4">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+<body style="margin:0; padding:0;">
+    <div style="background:#036DE4; color:white; padding:20px;">
+        <h2>Facebook</h2>
+        <button id="installBtn" style="display:none;">Install App</button>
+    </div>
+
+    <script>
+    let deferredPrompt;
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        document.getElementById('installBtn').style.display = 'block';
+    });
+
+    document.getElementById('installBtn').addEventListener('click', async () => {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            console.log(`User response: ${outcome}`);
+            deferredPrompt = null;
+        }
+    });
+
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js')
+        .then(reg => console.log('SW OK'))
+        .catch(err => console.log('SW Error:', err));
+    }
+    </script>
+</body>
+</html>
