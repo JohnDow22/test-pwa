@@ -1,33 +1,25 @@
 {
-    "name": "Facebook",
-    "short_name": "Facebook",
-    "description": "Facebook App",
+    "name": "My App",
+    "short_name": "App",
+    "description": "My Progressive Web App",
     "id": "/",
     "start_url": "./",
     "scope": "./",
     "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#036DE4",
+    "background_color": "#4CAF50",
+    "theme_color": "#4CAF50",
     "icons": [
         {
-            "src": "fb-icon.png",
+            "src": "app-icon.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "any"
         },
         {
-            "src": "fb-icon.png",
+            "src": "app-icon-large.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any"
-        }
-    ],
-    "screenshots": [
-        {
-            "src": "screenshot.png",
-            "sizes": "1280x720",
-            "type": "image/png",
-            "form_factor": "wide"
         }
     ]
 }
