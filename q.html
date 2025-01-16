@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+<canvas id="canvas" width="512" height="512"></canvas>
+<script>
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+// Зеленый фон
+ctx.fillStyle = '#4CAF50';
+ctx.fillRect(0, 0, 512, 512);
+
+// Белая буква A
+ctx.fillStyle = 'white';
+ctx.font = 'bold 300px Arial';
+ctx.textAlign = 'center';
+ctx.textBaseline = 'middle';
+ctx.fillText('A', 256, 256);
+
+// Сохранить как PNG
+const link = document.createElement('a');
+link.download = 'app-icon.png';
+link.href = canvas.toDataURL('image/png');
+link.click();
+</script>
+</body>
+</html>
